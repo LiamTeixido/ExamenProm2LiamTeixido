@@ -26,10 +26,12 @@ public class ScoreManager : MonoBehaviour
     private int score;
     public int Score => score;
 
-    private void Awake()
+    /*private void Awake()
     {
         DontDestroyOnLoad(gameObject);
     }
+    */
+
 
     public void IncrementScore(int value)
     {
