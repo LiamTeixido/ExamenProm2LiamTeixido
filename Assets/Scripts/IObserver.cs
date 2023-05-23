@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
+using TMPro;
 
 public class IObserver : MonoBehaviour
 {
@@ -11,11 +11,10 @@ public class IObserver : MonoBehaviour
     private void Start()
     {
         scoreText = GetComponent<TextMeshProUGUI>();
-        ScoreManager.Instance.OnScoreChanged += UpdateScoreText;
     }
 
-    private void UpdateScoreText()
+    private void Update()
     {
-        scoreText.text = "Score: " + ScoreManager.Instance.GetScore().ToString();
+        scoreText.text = "Score: " + ScoreManager.Instance.Score.ToString();
     }
 }

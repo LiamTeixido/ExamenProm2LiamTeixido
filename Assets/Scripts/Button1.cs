@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Button1 : ScoreIncrement
+public class Button1 : MonoBehaviour
 {
-    protected override int GetIncrementValue()
+    public void OnClick()
     {
-        return 1;
+        ScoreManager.Instance.IncrementScore(1);
     }
 }

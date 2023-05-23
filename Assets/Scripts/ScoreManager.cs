@@ -1,16 +1,11 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class ScoreManager : MonoBehaviour
 {
-    [SerializeField]
-    private int score = 0;
     private static ScoreManager instance;
-    internal Action OnScoreChanged;
-
     public static ScoreManager Instance
     {
         get
@@ -20,17 +15,20 @@ public class ScoreManager : MonoBehaviour
                 instance = FindObjectOfType<ScoreManager>();
                 if (instance == null)
                 {
-                    GameObject manager = new GameObject("ScoreManager");
-                    instance = manager.AddComponent<ScoreManager>();
+                    GameObject obj = new GameObject();
+                    instance = obj.AddComponent<ScoreManager>();
                 }
             }
             return instance;
         }
     }
 
-    public int GetScore()
+    private int score;
+    public int Score => score;
+
+    private void Awake()
     {
-        return score;
+        DontDestroyOnLoad(gameObject);
     }
 
     public void IncrementScore(int value)
